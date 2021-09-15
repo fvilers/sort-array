@@ -1,11 +1,12 @@
 {
-  "name": "sort-array",
+  "name": "@fvilers/sort-array",
   "version": "0.0.0",
   "description": "An helper function to sort array based on a property or a predicate",
   "main": "dist/src/sort-array.js",
   "types": "dist/src/sort-array.d.ts",
   "scripts": {
     "build": "tsc",
+    "prepare": "npm run build",
     "test": "jest"
   },
   "repository": {
