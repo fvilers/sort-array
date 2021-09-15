@@ -19,7 +19,7 @@ yarn add @fvilers/sort-array
 ```ts
 import sortArray from "@fvilers/sort-array";
 
-const array = sortArray.default(
+const array = sortArray(
   [
     { letter: "delta" },
     { letter: "alpha" },
