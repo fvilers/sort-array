@@ -1,5 +1,5 @@
 function sortArray<T, K extends keyof T>(
-  array: T[],
+  array: ReadonlyArray<T>,
   on?: K,
   order: "asc" | "desc" = "asc"
 ): T[] {
