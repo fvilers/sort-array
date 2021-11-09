@@ -1,6 +1,6 @@
 # @fvilers/sort-array
 
-An helper function for constructing className strings conditionally
+An helper function to sort array based on a property or a predicate
 
 ## Installation
 
