@@ -64,3 +64,46 @@ test("sorts correctly an array of objects on a specific property (descending)", 
     { letter: "alpha" },
   ]);
 });
+
+test("sorts correctly an array of objects on a specific date property (ascending)", () => {
+  expect(
+    sortArray(
+      [
+        { letter: "delta", created: new Date(2021, 10, 26, 6, 47) },
+        { letter: "alpha", created: new Date(2021, 10, 26, 6, 45) },
+        { letter: "beta", created: new Date(2021, 10, 26, 6, 48) },
+        { letter: "gamma", created: new Date(2021, 10, 26, 6, 46) },
+        { letter: "epsilon", created: new Date(2021, 10, 26, 6, 49) },
+      ],
+      "created"
+    )
+  ).toStrictEqual([
+    { letter: "alpha", created: new Date(2021, 10, 26, 6, 45) },
+    { letter: "gamma", created: new Date(2021, 10, 26, 6, 46) },
+    { letter: "delta", created: new Date(2021, 10, 26, 6, 47) },
+    { letter: "beta", created: new Date(2021, 10, 26, 6, 48) },
+    { letter: "epsilon", created: new Date(2021, 10, 26, 6, 49) },
+  ]);
+});
+
+test("sorts correctly an array of objects on a specific date property (descending)", () => {
+  expect(
+    sortArray(
+      [
+        { letter: "delta", created: new Date(2021, 10, 26, 6, 47) },
+        { letter: "alpha", created: new Date(2021, 10, 26, 6, 45) },
+        { letter: "beta", created: new Date(2021, 10, 26, 6, 48) },
+        { letter: "gamma", created: new Date(2021, 10, 26, 6, 46) },
+        { letter: "epsilon", created: new Date(2021, 10, 26, 6, 49) },
+      ],
+      "created",
+      "desc"
+    )
+  ).toStrictEqual([
+    { letter: "epsilon", created: new Date(2021, 10, 26, 6, 49) },
+    { letter: "beta", created: new Date(2021, 10, 26, 6, 48) },
+    { letter: "delta", created: new Date(2021, 10, 26, 6, 47) },
+    { letter: "gamma", created: new Date(2021, 10, 26, 6, 46) },
+    { letter: "alpha", created: new Date(2021, 10, 26, 6, 45) },
+  ]);
+});
