@@ -32,7 +32,7 @@ const array = sortArray(
 console.log(array);
 ```
 
-Will produce a need array containing
+Will produce a new array containing
 
 ```ts
 [
