@@ -2,8 +2,8 @@
   "name": "@fvilers/sort-array",
   "version": "1.0.4",
   "description": "An helper function to sort array based on a property or a predicate",
-  "main": "dist/src/sort-array.js",
-  "types": "dist/src/sort-array.d.ts",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
   "scripts": {
     "build": "tsc",
     "prepare": "npm run build",
@@ -27,6 +27,9 @@
     "url": "https://github.com/fvilers/sort-array/issues"
   },
   "homepage": "https://github.com/fvilers/sort-array#readme",
+  "dependencies": {
+    "@fvilers/is-function": "^1.0.1"
+  },
   "devDependencies": {
     "@babel/preset-env": "^7.15.6",
     "@babel/preset-typescript": "^7.15.0",

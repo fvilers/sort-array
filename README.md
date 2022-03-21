@@ -1,6 +1,6 @@
 # @fvilers/sort-array
 
-An helper function to sort array based on a property or a predicate
+An helper function to sort array based on a property. An helper object to sort on nested properties is also provided.
 
 ## Installation
 
@@ -17,9 +17,9 @@ yarn add @fvilers/sort-array
 ## Usage
 
 ```ts
-import sortArray from "@fvilers/sort-array";
+import sortArray, { ArraySorter } from "@fvilers/sort-array";
 
-const array = sortArray(
+const letters = sortArray(
   [
     { letter: "delta" },
     { letter: "alpha" },
@@ -29,17 +29,29 @@ const array = sortArray(
   ],
   "letter"
 );
-console.log(array);
+console.log(letters);
+
+type TestObject = { a: { b: { c: number } } };
+
+const objects = new ArraySorter<TestObject>([
+  { a: { b: { c: 3 } } },
+  { a: { b: { c: 5 } } },
+  { a: { b: { c: 1 } } },
+  { a: { b: { c: 2 } } },
+  { a: { b: { c: 4 } } },
+]).sort(["a", "b", "c"], "asc");
+console.log(JSON.stringify(objects));
 ```
 
-Will produce a new array containing
+Will produce a new array containingIt will output:
 
-```ts
+```
 [
-  { letter: "alpha" },
-  { letter: "beta" },
-  { letter: "delta" },
-  { letter: "epsilon" },
-  { letter: "gamma" },
-];
+  { letter: 'alpha' },
+  { letter: 'beta' },
+  { letter: 'delta' },
+  { letter: 'epsilon' },
+  { letter: 'gamma' }
+]
+[{"a":{"b":{"c":1}}},{"a":{"b":{"c":2}}},{"a":{"b":{"c":3}}},{"a":{"b":{"c":4}}},{"a":{"b":{"c":5}}}]
 ```

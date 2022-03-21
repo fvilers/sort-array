@@ -1,4 +1,4 @@
-import sortArray from "../src/sort-array";
+import sortArray, { ArraySorter } from "../src";
 
 test("sorts correctly an array of strings (ascending)", () => {
   expect(
@@ -105,5 +105,43 @@ test("sorts correctly an array of objects on a specific date property (descendin
     { letter: "delta", created: new Date(2021, 10, 26, 6, 47) },
     { letter: "gamma", created: new Date(2021, 10, 26, 6, 46) },
     { letter: "alpha", created: new Date(2021, 10, 26, 6, 45) },
+  ]);
+});
+
+type TestObject = { a: { b: { c: number } } };
+
+test("sorts correctly an array of objects with a deep selector (ascending)", () => {
+  expect(
+    new ArraySorter<TestObject>([
+      { a: { b: { c: 3 } } },
+      { a: { b: { c: 5 } } },
+      { a: { b: { c: 1 } } },
+      { a: { b: { c: 2 } } },
+      { a: { b: { c: 4 } } },
+    ]).sort(["a", "b", "c"], "asc")
+  ).toStrictEqual([
+    { a: { b: { c: 1 } } },
+    { a: { b: { c: 2 } } },
+    { a: { b: { c: 3 } } },
+    { a: { b: { c: 4 } } },
+    { a: { b: { c: 5 } } },
+  ]);
+});
+
+test("sorts correctly an array of objects with a deep selector (descending)", () => {
+  expect(
+    new ArraySorter<TestObject>([
+      { a: { b: { c: 3 } } },
+      { a: { b: { c: 5 } } },
+      { a: { b: { c: 1 } } },
+      { a: { b: { c: 2 } } },
+      { a: { b: { c: 4 } } },
+    ]).sort(["a", "b", "c"], "desc")
+  ).toStrictEqual([
+    { a: { b: { c: 5 } } },
+    { a: { b: { c: 4 } } },
+    { a: { b: { c: 3 } } },
+    { a: { b: { c: 2 } } },
+    { a: { b: { c: 1 } } },
   ]);
 });
