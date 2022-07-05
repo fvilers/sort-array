@@ -1,8 +1,8 @@
-import Order from "./Order";
+import { Order } from "./Order.js";
 
 type Selector<T, K extends keyof T> = (item: T) => T | T[K];
 
-function sortArray<T, K extends keyof T>(
+export function sortArray<T, K extends keyof T>(
   array: ReadonlyArray<T>,
   on?: K,
   order: Order = "asc"
@@ -31,5 +31,3 @@ export function _sortArray<T, K extends keyof T>(
     return 0;
   });
 }
-
-export default sortArray;

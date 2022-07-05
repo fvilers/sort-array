@@ -1,6 +1,4 @@
-import ArraySorter from "./ArraySorter";
-import sortArray from "./sortArray";
+import { ArraySorter } from "./ArraySorter.js";
+import { sortArray } from "./sortArray.js";
 
-export { ArraySorter };
-
-export default sortArray;
+export { ArraySorter, sortArray };

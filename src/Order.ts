@@ -1,3 +1,1 @@
-type Order = "asc" | "desc";
-
-export default Order;
+export type Order = "asc" | "desc";

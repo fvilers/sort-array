@@ -1,4 +1,4 @@
-import sortArray, { ArraySorter } from "../src";
+import { ArraySorter, sortArray } from "../src/index.js";
 
 test("sorts correctly an array of strings (ascending)", () => {
   expect(

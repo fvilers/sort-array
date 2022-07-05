@@ -14,10 +14,14 @@ or
 yarn add @fvilers/sort-array
 ```
 
+# ECMAScript module
+
+Starting with version 2.0.0, this library will be published as an ECMAScript module.
+
 ## Usage
 
 ```ts
-import sortArray, { ArraySorter } from "@fvilers/sort-array";
+import { ArraySorter, sortArray } from "@fvilers/sort-array";
 
 const letters = sortArray(
   [

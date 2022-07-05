@@ -1,5 +1,5 @@
-import Order from "./Order";
-import { _sortArray } from "./sortArray";
+import { Order } from "./Order.js";
+import { _sortArray } from "./sortArray.js";
 
 type ExtractObj<T extends object, K> = K extends keyof T ? T[K] : never;
 type Path<T extends object, U extends readonly unknown[]> = U extends readonly [
@@ -17,7 +17,7 @@ type Path<T extends object, U extends readonly unknown[]> = U extends readonly [
     : readonly [T0]
   : readonly [];
 
-class ArraySorter<T extends object> {
+export class ArraySorter<T extends object> {
   constructor(private readonly array: ReadonlyArray<T>) {}
 
   sort<U extends readonly [keyof T, ...unknown[]]>(
@@ -38,5 +38,3 @@ class ArraySorter<T extends object> {
     return _sortArray(this.array, selector, modifier);
   }
 }
-
-export default ArraySorter;
